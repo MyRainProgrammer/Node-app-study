@@ -6,6 +6,11 @@ import path from 'path;'
 const debugapp = debug('app');
 const app = express();
 const port = 5000;
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 app.use(morgan('combind'));
 app.use(express.static(path.join(__dirname,"/public/")));
