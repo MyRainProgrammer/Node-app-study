@@ -2,7 +2,7 @@ import express from 'express';
 import chalk from 'chalk';
 import morgan from 'morgan';
 import debug from 'debug';
-import path from 'path;'
+import path from 'path';
 const debugapp = debug('app');
 const app = express();
 const port = 5000;
