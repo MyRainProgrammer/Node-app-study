@@ -9,6 +9,7 @@ const app = express();
 const PORT = process.env.PORT;
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
+const productRouter = express.Router();
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -17,6 +18,16 @@ app.use(morgan('combind'));
 app.use(express.static(path.join(__dirname,"/public/")));
 app.set("views","./src/views");
 app.set("view engine", "ejs")
+
+productRouter.route("/").get((req,res) =>{
+    res.send("Hello World !! I'm Product");
+});
+
+productRouter.route("/1").get((req,res) =>{
+    res.send("Hello World !! I'm Product1");
+});
+
+app.use("/products", productRouter)
 
 app.get("/", (req, res) => {
 
