@@ -7,14 +7,25 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
+    "start": "DEBUG=app nodemon app.js",
+    "debug": "DEBUG=* nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
     "chalk": "^5.6.2",
     "debug": "^4.4.3",
+    "ejs": "^5.0.2",
     "express": "^5.2.1",
     "morgan": "^1.10.1",
+    "nodemon": "^3.1.14",
     "path": "^0.12.7",
     "url": "^0.11.4"
+  },
+  "nodemonConfig": {
+    "restartable": "rs",
+    "delay": 2000,
+    "env": {
+      "PORT": 5000
+    }
   }
 }
