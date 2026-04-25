@@ -10,6 +10,7 @@ const PORT = process.env.PORT;
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 const productRouter = express.Router();
+import products from './data/products.json' with {type: "json"}
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -20,7 +21,9 @@ app.set("views","./src/views");
 app.set("view engine", "ejs")
 
 productRouter.route("/").get((req,res) =>{
-    res.render("products");
+    res.render("products",
+        products,
+    );
 });
 
 productRouter.route("/1").get((req,res) =>{
